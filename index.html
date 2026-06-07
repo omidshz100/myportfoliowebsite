@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omid Shojaeian | iOS, AI & App Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --apple-bg: #F5F5F7;
+            --apple-text: #1D1D1F;
+            --apple-blue: #0066CC;
+            --apple-card: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, "Inter", sans-serif;
+            background-color: var(--apple-bg);
+            color: var(--apple-text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .bento-card {
+            background-color: var(--apple-card);
+            border-radius: 28px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.02);
+            cursor: pointer;
+        }
+
+        .bento-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0) scale(1);
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        .gallery-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background: #D2D2D7;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full top-0 z-40">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-lg font-semibold tracking-tight">Omid Shojaeian</span>
+            <div class="space-x-8 text-sm font-medium text-gray-800 hidden md:block">
+                <a href="#work" class="hover:text-blue-600 transition-colors">Work</a>
+                <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="about" class="pt-40 pb-20 px-6 max-w-5xl mx-auto z-10 flex flex-col-reverse md:flex-row items-center gap-12">
+        <div class="text-center md:text-left flex-1">
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 gradient-text">
+                T-shaped engineering.<br/> Human-centric AI.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-500 font-normal leading-relaxed mb-8">
+                Hi, I'm <span class="text-gray-900 font-medium">Omid</span>. A Data Scientist and software engineer based in Naples. I blend deep machine learning expertise with elegant UI engineering to build powerful, privacy-first applications.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+                <a href="#work" class="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition shadow-lg">View Projects</a>
+                <a href="https://github.com/omidshz100" target="_blank" class="flex items-center gap-2 px-6 py-3 rounded-full font-medium bg-gray-100 hover:bg-gray-200 transition text-gray-900">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                    GitHub Profile
+                </a>
+            </div>
+        </div>
+        <!-- Profile Image Container -->
+        <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-white flex-shrink-0 bg-gray-200">
+            <!-- REPLACE THIS SRC WITH YOUR ACTUAL IMAGE URL -->
+            <img src="images/profile.jpeg" alt="Omid Shojaeian" class="w-full h-full object-cover shadow-inner" onerror="this.src='https://via.placeholder.com/400x400?text=Omid+Image'"/>
+        </div>
+    </header>
+
+    <!-- Bento Grid Section -->
+    <section id="work" class="max-w-6xl mx-auto px-6 pb-32 w-full flex-grow">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- LLMsApps Project -->
+            <div class="bento-card col-span-1 lg:col-span-2 flex flex-col h-[420px] relative group" onclick="openModal('modal-llm')">
+                <div class="p-8 pb-0 z-10 flex justify-between items-start">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase mb-2">iOS / Swift / Metal</h3>
+                        <h2 class="text-3xl font-bold mb-3 text-gray-900">LLMsApps</h2>
+                        <p class="text-gray-600 max-w-md line-clamp-2">A privacy-first iOS application implementing a RAG pipeline entirely on-device, leveraging Apple Silicon.</p>
+                    </div>
+                </div>
+                <!-- Mini Gallery Preview in Bento -->
+                <div class="mt-auto p-8 overflow-hidden relative">
+                    <div class="flex gap-4 transform transition-transform duration-700 group-hover:-translate-x-4">
+                        <img src="images/img_2.png" alt="LLMsApps" class="w-64 h-40 object-cover rounded-xl shadow-lg border border-gray-100" onerror="this.src='https://via.placeholder.com/300x200?text=App+Screenshot+1'"/>
+                        <img src="images/img_3.png" alt="LLMsApps" class="w-64 h-40 object-cover rounded-xl shadow-lg border border-gray-100" onerror="this.src='https://via.placeholder.com/300x200?text=App+Screenshot+2'"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WhatIf Project -->
+            <div class="bento-card col-span-1 h-[420px] flex flex-col relative group bg-gradient-to-br from-white to-gray-50" onclick="openModal('modal-whatif')">
+                <div class="p-8 z-10">
+                    <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase mb-2">React / Math</h3>
+                    <h2 class="text-3xl font-bold mb-3 text-gray-900">WhatIf</h2>
+                    <p class="text-gray-600 line-clamp-3">A web-based probabilistic reasoning engine turning guesswork into calculated strategy.</p>
+                </div>
+                <div class="mt-auto p-8 flex justify-center">
+                    <img src="images/what-if.png" alt="WhatIf UI" class="w-full h-40 object-cover rounded-xl shadow-md border border-gray-100 group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/300x200?text=WhatIf+UI'"/>
+                </div>
+            </div>
+
+            <!-- Jarvis Project -->
+            <div class="bento-card col-span-1 lg:col-span-3 h-[450px] flex flex-col md:flex-row relative group bg-[#1c1c1e] text-white" onclick="openModal('modal-jarvis')">
+                <div class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center z-10">
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-2">Three.js / React / AI</h3>
+                    <h2 class="text-4xl font-bold mb-4">Jarvis 3D AI</h2>
+                    <p class="text-gray-300 max-w-lg mb-6">A fully interactive, voice-driven 3D avatar bridging text-based LLMs with natural, multimodal human interaction.</p>
+                    <div>
+                        <span class="inline-flex items-center text-sm font-medium text-blue-400 bg-blue-500/10 px-4 py-2 rounded-full">
+                            View Case Study & Gallery <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="md:w-1/2 h-full absolute right-0 top-0 flex items-center justify-center p-8">
+                     <!-- YouTube Thumbnail/Preview placeholder -->
+                     <div class="w-full h-64 bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden relative group-hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-shadow duration-500">
+                         <img src="images/jarvis/rarvis_img_2 copy.png" class="w-full h-full object-cover opacity-70" onerror="this.src='https://via.placeholder.com/600x400/111/333?text=Jarvis+3D+Preview'"/>
+                         <div class="absolute inset-0 flex items-center justify-center">
+                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
+                                 <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modals with Galleries -->
+
+    <!-- LLMsApps Modal -->
+    <div id="modal-llm" class="modal fixed inset-0 z-50 flex items-center justify-center bg-gray-900/60 p-4 sm:p-6">
+        <div class="modal-content bg-white w-full max-w-5xl max-h-[90vh] rounded-3xl overflow-y-auto shadow-2xl flex flex-col">
+            <div class="sticky top-0 bg-white/80 backdrop-blur-xl p-6 border-b border-gray-100 flex justify-between items-center z-10">
+                <h2 class="text-2xl font-bold text-gray-900">LLMsApps: On-Device RAG</h2>
+                <div class="flex gap-4">
+                    <a href="https://github.com/omidshz100/LLMsApps" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full hover:bg-gray-200 transition text-sm font-semibold">
+                        GitHub Repo
+                    </a>
+                    <button onclick="closeModal('modal-llm')" class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors">
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-8 flex flex-col lg:flex-row gap-10">
+                <!-- Content Side -->
+                <div class="lg:w-1/2 prose prose-gray max-w-none">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">A fully functional, privacy-first iOS application that implements a Retrieval-Augmented Generation (RAG) pipeline entirely on-device.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-8 mb-4">Technical Proficiency</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong>Hardware Acceleration via Metal:</strong> Integrates <code>swift-llama-cpp</code>, heavily utilizing Metal Performance Shaders (MPS) for the Apple Silicon GPU.</li>
+                        <li><strong>Absolute Privacy & Security:</strong> Handles embedding, retrieval, and generation 100% offline. Zero data exfiltration.</li>
+                    </ul>
+                </div>
+                
+                <!-- Media Gallery Side -->
+                <div class="lg:w-1/2 flex flex-col gap-6">
+                    <h3 class="text-lg font-bold text-gray-900">Project Media</h3>
+                    <!-- YouTube Embed -->
+                    <div class="w-full aspect-video rounded-2xl overflow-hidden bg-gray-100">
+                        <!-- REPLACE SRC WITH YOUR YOUTUBE EMBED LINK -->
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/e4zqpuyabFg?" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <!-- Image Grid -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="images/img_2.png" class="w-full aspect-[4/3] object-cover rounded-xl bg-gray-100" onerror="this.src='https://via.placeholder.com/400x300?text=Gallery+1'"/>
+                        <img src="images/img_3.png" class="w-full aspect-[4/3] object-cover rounded-xl bg-gray-100" onerror="this.src='https://via.placeholder.com/400x300?text=Gallery+2'"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatIf Modal -->
+    <div id="modal-whatif" class="modal fixed inset-0 z-50 flex items-center justify-center bg-gray-900/60 p-4 sm:p-6">
+        <div class="modal-content bg-white w-full max-w-5xl max-h-[90vh] rounded-3xl overflow-y-auto shadow-2xl flex flex-col">
+            <div class="sticky top-0 bg-white/80 backdrop-blur-xl p-6 border-b border-gray-100 flex justify-between items-center z-10">
+                <h2 class="text-2xl font-bold text-gray-900">WhatIf: Probabilistic Engine</h2>
+                <div class="flex gap-4">
+                    <a href="YOUR_WHATIF_GITHUB_LINK" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full hover:bg-gray-200 transition text-sm font-semibold">
+                        GitHub Repo
+                    </a>
+                    <button onclick="closeModal('modal-whatif')" class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors">
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-8 flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/2 prose prose-gray max-w-none">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">A web-based probabilistic reasoning engine empowering users to diagnose complex scenarios using Bayesian logic.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-8 mb-4">Architecture & Design Elegance</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong>Custom Inference Engine:</strong> A proprietary JavaScript model handling log-odds scoring and posterior distributions via softmax.</li>
+                        <li><strong>Frictionless UX:</strong> Translates intimidating probabilistic data into actionable insights through hardware-accelerated animations and intuitive UI.</li>
+                    </ul>
+                </div>
+                
+                <!-- Media Gallery Side -->
+                <div class="lg:w-1/2 flex flex-col gap-6">
+                    <h3 class="text-lg font-bold text-gray-900">Project Media</h3>
+                    <!-- YouTube Embed -->
+                    <div class="w-full aspect-video rounded-2xl overflow-hidden bg-gray-100">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/PmVSe7jpbr0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <!-- Image Grid -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="images/what-if.png" class="w-full aspect-video object-cover rounded-xl bg-gray-100" onerror="this.src='https://via.placeholder.com/400x225?text=Dashboard'"/>
+                        <img src="images/what-if2.png" class="w-full aspect-video object-cover rounded-xl bg-gray-100" onerror="this.src='https://via.placeholder.com/400x225?text=Data+Viz'"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jarvis Modal -->
+    <div id="modal-jarvis" class="modal fixed inset-0 z-50 flex items-center justify-center bg-gray-900/70 p-4 sm:p-6">
+        <div class="modal-content bg-[#1c1c1e] w-full max-w-5xl max-h-[90vh] rounded-3xl overflow-y-auto shadow-2xl flex flex-col text-white">
+            <div class="sticky top-0 bg-[#1c1c1e]/80 backdrop-blur-xl p-6 border-b border-gray-800 flex justify-between items-center z-10">
+                <h2 class="text-2xl font-bold text-white">Jarvis: 3D Conversational AI</h2>
+                <div class="flex gap-4">
+                    <a href="YOUR_JARVIS_GITHUB_LINK" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-full hover:bg-gray-700 transition text-sm font-semibold text-white border border-gray-700">
+                        GitHub Repo
+                    </a>
+                    <button onclick="closeModal('modal-jarvis')" class="p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition-colors text-gray-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-8 flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/2 prose prose-invert max-w-none">
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">A fully interactive, multimodal 3D conversational AI assistant bridging the gap between text-based LLMs and natural human interaction.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Advanced Frameworks</h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li><strong>3D Rendering:</strong> Three.js & React Three Fiber used to render and animate the 3D avatar directly in the browser.</li>
+                        <li><strong>Real-time Lip Sync:</strong> Implements a complex event loop mapping API responses to facial morph targets (visemes) in perfect sync with audio playback.</li>
+                    </ul>
+                </div>
+                
+                <!-- Media Gallery Side -->
+                <div class="lg:w-1/2 flex flex-col gap-6">
+                    <h3 class="text-lg font-bold text-white">Demonstration</h3>
+                    <!-- YouTube Embed -->
+                    <div class="w-full aspect-video rounded-2xl overflow-hidden bg-gray-800 border border-gray-700">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/FlwU6Cdl5D4" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <!-- Image Scroll/Grid -->
+                    <div class="flex gap-4 overflow-x-auto gallery-scroll pb-4">
+                        <img src="images/jarvis/rarvis_img_2.png" class="w-64 h-40 flex-shrink-0 object-cover rounded-xl bg-gray-800" onerror="this.src='https://via.placeholder.com/400x250/222/555?text=Avatar+Close-up'"/>
+                        <img src="images/jarvis/rarvis_img_1.png" class="w-64 h-40 flex-shrink-0 object-cover rounded-xl bg-gray-800" onerror="this.src='https://via.placeholder.com/400x250/222/555?text=UI+Integration'"/>
+                        <img src="images/jarvis/rarvis_img_3.png" class="w-64 h-40 flex-shrink-0 object-cover rounded-xl bg-gray-800" onerror="this.src='https://via.placeholder.com/400x250/222/555?text=Architecture'"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-10 text-center border-t border-gray-200">
+        <p class="text-sm text-gray-500">Studying Data Science at University of Naples Federico II</p>
+        <div class="flex justify-center space-x-6 mt-4">
+            <a href="https://github.com/omidshz100" class="text-sm text-gray-400 hover:text-gray-900 cursor-pointer transition-colors">GitHub</a>
+            <a href="https://www.linkedin.com/in/omid-shojaeian-zanjani/" class="text-sm text-gray-400 hover:text-gray-900 cursor-pointer transition-colors">Linkedin</a>
+            <span class="text-sm text-gray-400 hover:text-gray-900 cursor-pointer transition-colors">Contact</span>
+        </div>
+    </footer>
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
